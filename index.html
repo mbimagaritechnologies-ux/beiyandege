@@ -1,83 +1,80 @@
 <!DOCTYPE html>
 <html lang="en" translate="yes">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Bei ya Ndege Kenya | Linganisha Bei za Ndege - BeiyaNdege</title>
-<meta name="description" content="Linganisha bei za ndege Kenya. UGC bei halisi kutoka kwa abiria. NBO-MBA, NBO-KSM. Pata ofa nafuu. Compare flight prices in Kenya."/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Bei ya Ndege Kenya - Linganisha Bei - UGC + Time</title>
+<meta name="description" content="Linganisha bei za ndege Kenya na muda wa departure. UGC halisi. NBO-MBA, NBO-KSM na usiku. Compare flights Kenya with departure times."/>
 <meta name="google-site-verification" content="PASTE_YOUR_GOOGLE_CODE_HERE"/>
-<meta property="og:title" content="BeiyaNdege - Bei ya Ndege Kenya"/>
-<meta property="og:description" content="UGC Interactive Flight Prices. Compare & Save."/>
+<meta property="og:title" content="BeiyaNdege - Bei + Muda wa Ndege"/>
 <meta property="og:image" content="/og-image.png"/>
-<meta property="og:type" content="website"/>
 <link rel="canonical" href="https://beiyandege.mbimagari.autos/"/>
 <script type="application/ld+json">
-{
- "@context":"https://schema.org",
- "@type":"FAQPage",
- "mainEntity":[
-   {"@type":"Question","name":"Bei ya ndege Nairobi to Mombasa ni ngapi?","acceptedAnswer":{"@type":"Answer","text":"Bei inaanza 4500 KES kulingana na UGC wetu. Linganisha hapa beiyandege.mbimagari.autos"}},
-   {"@type":"Question","name":"How to find cheap flights in Kenya?","acceptedAnswer":{"@type":"Answer","text":"Use UGC prices posted by travelers on beiyandege.mbimagari.autos and compare via Aviasales links."}}
- ]
-}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Bei ya ndege Nairobi Mombasa usiku ni ngapi?","acceptedAnswer":{"@type":"Answer","text":"Kwenye beiyandege.mbimagari.autos utaona UGC prices na times za usiku. Anzia 4500 KES."}}
+]}
 </script>
 <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 <header>
 <div class="logo">BEI<span>YA</span>NDEGE</div>
-<button id="langBtn">SW/EN</button>
-<button id="voiceBtn">🎤 Tafuta kwa sauti / Voice Search</button>
+<div><button id="langBtn" class="btn">SW/EN</button> <button id="voiceBtn" class="btn btn-red">🎤</button></div>
 </header>
+<main style="padding:16px">
+<h1 id="h1">Linganisha Bei za Ndege - na Muda wa Kuondoka</h1>
 
-<main>
-<h1 id="h1">Linganisha Bei za Ndege Kenya - UGC Halisi</h1>
+<div class="ugc-card">
+<h3>Chapisha Bei Uliona (UGC)</h3>
+<input id="from" placeholder="Kutoka: NBO / Nairobi"/>
+<input id="to" placeholder="Kwenda: MBA / Mombasa"/>
+<input id="price" type="number" placeholder="Bei KES: 4500"/>
 
-<div id="ugcForm" class="ugc-card">
-<h3>Chapisha Bei Uliona</h3>
-<input id="from" placeholder="Kutoka: NBO"/>
-<input id="to" placeholder="Kwenda: MBA"/>
-<input id="price" placeholder="Bei: 4500"/>
-<input id="time" placeholder="Muda: Saa 2 usiku / Morning"/>
-<button class="btn-primary" onclick="postPrice()">Chapisha</button>
+<label>Muda wa Kuondoka / Departure Time</label>
+<select id="timeSlot">
+<option>Asubuhi 6am-12pm</option>
+<option>Mchana 12pm-6pm</option>
+<option>Jioni 6pm-9pm</option>
+<option>Usiku 9pm-6am - Night Flights</option>
+</select>
+<input id="exactTime" placeholder="Exact Time: 10:45 PM (hiari)"/>
+
+<label>Kampuni ya Ndege</label>
+<select id="airline"></select>
+<div id="customAirlineWrap" style="display:none"><input id="customAirline" placeholder="Andika Kampuni Nyingine: Renegade Air"/></div>
+
+<button class="btn btn-blue" onclick="postPrice()" style="width:100%;margin-top:10px">Chapisha Bei + Muda</button>
 </div>
 
-<div id="priceFeed"></div>
+<div id="priceFeed"><p>Bei za hivi karibuni na nyakati za departure...</p></div>
 </main>
-
-<footer>
-<p>Follow Us:</p>
-<div class="social-bar">
-<a href="https://tiktok.com/@mbimagari">TikTok</a>
-<a href="https://youtube.com/@mbimagari">YouTube</a>
-<a href="https://www.facebook.com/share/1DQLauFRob/">Facebook</a>
-<a href="https://whatsapp.com/channel/0029Vb5YdIXHLHQb4kUYnj09">WhatsApp Channel</a>
-</div>
-<p>Call/WhatsApp: 0115513320 | Sister: <a href="https://hirendege.mbimagari.autos">HireNdege</a> | <a href="https://rescue.mbimagari.autos">Rescue</a></p>
-<a href="about.html">About</a> | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a> | <a href="contact.html">Contact</a>
+<footer style="padding:20px;border-top:2px solid #eee">
+<p>Follow Us: <a href="https://tiktok.com/@mbimagari">TikTok</a> | <a href="https://youtube.com/@mbimagari">YouTube</a> | <a href="https://www.facebook.com/share/1DQLauFRob/">Facebook</a> | <a href="https://whatsapp.com/channel/0029Vb5YdIXHLHQb4kUYnj09">Channel</a></p>
+<p>Call/WhatsApp: 0115513320 | <a href="https://hirendege.mbimagari.autos">HireNdege</a> | <a href="https://rescue.mbimagari.autos">Rescue</a></p>
+<p><a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
 </footer>
 
 <script type="module">
-import {MARKER} from './config.js';
-window.postPrice = ()=>{
-  const from=document.getElementById('from').value, to=document.getElementById('to').value, price=document.getElementById('price').value, time=document.getElementById('time').value;
-  const slug = `${from}-${to}-${price}`.toLowerCase();
-  const aviaLink = `https://www.aviasales.com/search/${from}${to}?marker=${MARKER}`;
-  document.getElementById('priceFeed').innerHTML += `<div class="ugc-card"><b>${from}→${to} KES ${price}</b> <br/>Muda: ${time} <br/><a href="${aviaLink}" target="_blank" class="btn-primary">Angalia Ofa - Check Deal</a></div>`;
-  // Auto creation logic - pushes to localStorage for SEO pages
-  localStorage.setItem(slug, JSON.stringify({from,to,price,time}));
+import {MARKER,AIRLINES} from './config.js';
+const sel=document.getElementById('airline');
+AIRLINES.forEach(a=>{let o=document.createElement('option');o.value=a;o.text=a;sel.appendChild(o);});
+let o=document.createElement('option');o.value="other";o.text="➕ Ongeza Kampuni Nyingine / Add Other";sel.appendChild(o);
+sel.onchange=()=>{document.getElementById('customAirlineWrap').style.display=sel.value==="other"?"block":"none";};
+
+window.postPrice=()=>{
+  let from=document.getElementById('from').value||"NBO";
+  let to=document.getElementById('to').value||"MBA";
+  let price=document.getElementById('price').value||"4500";
+  let slot=document.getElementById('timeSlot').value;
+  let exact=document.getElementById('exactTime').value;
+  let airline=sel.value==="other"?document.getElementById('customAirline').value:sel.value;
+  let timeDisplay = exact? `${slot} - ${exact}` : slot;
+  let link=`https://www.aviasales.com/search/${from}${to}?marker=${MARKER}`;
+  document.getElementById('priceFeed').innerHTML = `<div class="ugc-card"><b>${from} → ${to} | ${airline}</b><br/>💰 KES ${price} <span class="badge">${timeDisplay}</span><br/><br/><a href="${link}" target="_blank" class="btn btn-blue">Angalia Ofa - Check Deal</a> <small style="margin-left:8px">Departure time inaonekana</small></div>` + document.getElementById('priceFeed').innerHTML;
 };
-// Voice Search
-document.getElementById('voiceBtn').onclick=()=>{
-  const rec = new (window.SpeechRecognition||window.webkitSpeechRecognition)();
-  rec.lang='sw-KE'; rec.onresult=(e)=>{alert('Umesema: '+e.results[0][0].transcript);}; rec.start();
-};
-// Lang Switch
-let sw=true;
-document.getElementById('langBtn').onclick=()=>{
-  sw=!sw;
-  document.getElementById('h1').innerText=sw?"Linganisha Bei za Ndege Kenya - UGC Halisi":"Compare Kenya Flight Prices - Real UGC";
-};
+// Voice & Lang
+document.getElementById('voiceBtn').onclick=()=>{const r=new (window.SpeechRecognition||window.webkitSpeechRecognition)();r.lang='sw-KE';r.onresult=e=>alert('Umesema: '+e.results[0][0].transcript);r.start();};
+let sw=false;
+document.getElementById('langBtn').onclick=()=>{sw=!sw;document.getElementById('h1').innerText=sw?"Compare Flight Prices - With Departure Time - Even Night Flights":"Linganisha Bei za Ndege - na Muda wa Kuondoka - Hata Usiku";};
 </script>
 </body>
-</html>
+ </html>
