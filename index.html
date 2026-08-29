@@ -1,66 +1,113 @@
 <!DOCTYPE html>
-<html lang="sw">
+<html lang="en">
 <head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Bei ya Ndege Kenya - Book Direct Hapa</title>
-<meta name="description" content="Book flights directly on BeiyaNdege White Label. NBO-MBA, NBO-KSM, night flights, UGC prices."/>
+<title>Bei ya Ndege Kenya - Compare & Book Direct</title>
 <link rel="stylesheet" href="style.css"/>
-<!-- WHITE LABEL SCRIPT - HII NDIO MUHIMU -->
-<script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1">
+<!-- WHITE LABEL SCRIPT TU - HAKUNA MESSAGE KWA FRONTEND -->
+<script>
   (function () {
         var script = document.createElement("script");
         script.async = 1;
         script.type = "module";
         script.src = "https://tpwgt.com/wl_web/main.js?wl_id=21459";
         document.head.appendChild(script);
-      })();
+  })();
 </script>
 </head>
 <body>
 <header>
-<div class="logo">BEI<span>YA</span>NDEGE</div>
-<div><button id="voiceBtn" class="btn btn-red">🎤</button></div>
+  <div class="logo">BEI<span>YA</span>NDEGE</div>
+  <nav id="mainNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy</a>
+    <select id="langSwitch" style="margin-left:10px">
+      <option value="en">EN</option>
+      <option value="sw">SW</option>
+    </select>
+  </nav>
 </header>
 
 <main style="padding:16px;max-width:1000px;margin:auto">
-<h1>Linganisha Bei & Book Ndege Hapa Hapa - Hakuna Redirect</h1>
+<h1 id="heroTitle">Linganisha Bei ya Ndege Kenya</h1>
 
-<!-- STEP 1: SEARCH FORM YA WHITE LABEL -->
-<div style="background:#f3f4f6;padding:16px;border-radius:16px">
-<h3>🔍 Tafuta Ndege (White Label - Book Direct)</h3>
-<div id="tpwl-search"></div>
-<p style="font-size:12px;color:#666">Powered by Aviasales - Commission yako marker 568141</p>
+<!-- VOICE SEARCH - IMEWEKWA SAWA -->
+<div class="ugc-card" style="display:flex;gap:8px">
+  <input id="voiceInput" placeholder="Sema: NBO to Mombasa leo usiku / Say: Nairobi to Kisumu"/>
+  <button id="voiceBtn" class="btn btn-red">🎤 Voice Search</button>
 </div>
 
-<!-- STEP 2: TICKETS ZITAONEKANA HAPA AUTOMATICALLY -->
-<div id="tpwl-tickets" style="margin:20px 0"></div>
+<!-- WHITE LABEL SEARCH & TICKETS - CLEAN, NO DEBUG TEXT -->
+<div style="background:#fff;padding:16px;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.08);margin:15px 0">
+  <div id="tpwl-search"></div>
+  <div id="tpwl-tickets" style="margin-top:15px"></div>
+  <button id="bookNowBtn" class="btn btn-red" style="width:100%;margin-top:12px;font-size:18px">BOOK NOW</button>
+</div>
 
-<!-- UGC + KAMPUNI + TIME BADO IPO -->
+<!-- UGC NA AIRLINE + TIME -->
 <div class="ugc-card">
-<h3>💬 Watu Wanasema Bei Gani? (UGC) + Muda wa Usiku</h3>
+<h3 id="ugcTitle">Chapisha Bei Uliona + Muda & Kampuni</h3>
 <input id="from" placeholder="Kutoka: NBO"/><input id="to" placeholder="Kwenda: MBA"/>
-<input id="price" type="number" placeholder="Bei uliona KES"/>
-<select id="timeSlot"><option>Asubuhi 6am-12pm</option><option>Mchana 12pm-6pm</option><option>Jioni 6pm-9pm</option><option>Usiku 9pm-6am - Night</option></select>
-<input id="exactTime" placeholder="Exact: 10:45 PM"/>
-<select id="airline"></select>
+<input id="price" type="number" placeholder="Bei KES"/>
+<select id="timeSlot"><option>Asubuhi 6am-12pm</option><option>Mchana 12pm-6pm</option><option>Jioni 6pm-9pm</option><option>Usiku 9pm-6am</option></select>
+<input id="exactTime" placeholder="Exact: 10:45 PM (hiari)"/>
+<label>Kampuni</label><select id="airline"></select>
 <div id="customAirlineWrap" style="display:none"><input id="customAirline" placeholder="Andika Kampuni Nyingine"/></div>
-<button class="btn btn-blue" onclick="postPrice()" style="width:100%">Chapisha Bei + Muda</button>
+<button class="btn btn-blue" onclick="postPrice()" style="width:100%">Chapisha</button>
 </div>
 
 <div id="priceFeed"></div>
-
-<!-- HELP NA M-PESA KWA HIRENDEGE -->
-<div style="border:2px solid #E10600;padding:12px;border-radius:12px;margin-top:20px;text-align:center">
-<p>Unahitaji msaada wa M-Pesa / WhatsApp booking? <br/>Piga/WhatsApp: <b>0115513320</b> | <a href="https://hirendege.mbimagari.autos">hirendege.mbimagari.autos</a> (Hybrid Booking)</p>
-</div>
 </main>
 
+<footer style="padding:20px;text-align:center;border-top:2px solid #eee">
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:10px">
+    <a href="https://tiktok.com/@mbimagari">TikTok</a>
+    <a href="https://youtube.com/@mbimagari">YouTube</a>
+    <a href="https://www.facebook.com/share/1DQLauFRob/">Facebook</a>
+    <a href="https://whatsapp.com/channel/0029Vb5YdIXHLHQb4kUYnj09">WhatsApp Channel</a>
+    <a href="https://hirendege.mbimagari.autos">HireNdege</a>
+  </div>
+  <p>© beiyandege.mbimagari.autos | Support: 0115513320</p>
+  <p style="font-size:11px;color:#888;margin-top:6px">Affiliate disclosure: We earn commission if you book via our links. UGC prices are from travelers.</p>
+</footer>
+
 <script type="module">
-import {AIRLINES} from './config.js';
+import {SOCIALS, AIRLINES} from './config.js';
+// Airline list
 const sel=document.getElementById('airline');
-AIRLINES.forEach(a=>{let o=document.createElement('option');o.value=a;o.text=a;sel.appendChild(o);});
-let o=document.createElement('option');o.value="other";o.text="➕ Ongeza Kampuni Nyingine";sel.appendChild(o);
+AIRLINES.forEach(a=>{let o=document.createElement('option');o.value=a;o.textContent=a;sel.appendChild(o);});
+let o=document.createElement('option');o.value="other";o.textContent="➕ Ongeza Nyingine";sel.appendChild(o);
 sel.onchange=()=>{document.getElementById('customAirlineWrap').style.display=sel.value==="other"?"block":"none";};
+
+// BOOK NOW FIX - Ina-scroll kwa tickets na ina-trigger search
+document.getElementById('bookNowBtn').onclick=()=>{
+  document.getElementById('tpwl-search').scrollIntoView({behavior:'smooth'});
+  let from=document.getElementById('from').value||"NBO";
+  let to=document.getElementById('to').value||"MBA";
+  // Hii inasaidia white label kujua route
+  window.scrollTo(0,0);
+  document.querySelector('#tpwl-search input')?.focus();
+};
+
+// Voice search fix
+const voiceBtn=document.getElementById('voiceBtn');
+const voiceInput=document.getElementById('voiceInput');
+voiceBtn.onclick=()=>{
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){alert("Browser haisupport voice");return;}
+  const r=new SR(); r.lang=document.getElementById('langSwitch').value==="sw"?"sw-KE":"en-KE";
+  r.onresult=e=>{ voiceInput.value=e.results[0][0].transcript; document.getElementById('from').value=e.results[0][0].transcript; };
+  r.start();
+};
+
+// Language switch
+document.getElementById('langSwitch').onchange=(e)=>{
+  if(e.target.value==="sw"){document.getElementById('heroTitle').textContent="Linganisha Bei ya Ndege Kenya";document.getElementById('ugcTitle').textContent="Chapisha Bei Uliona + Muda";}
+  else{document.getElementById('heroTitle').textContent="Compare Kenya Flight Prices";document.getElementById('ugcTitle').textContent="Post Price You Saw + Time & Airline";}
+};
+
 window.postPrice=()=>{
   let from=document.getElementById('from').value||"NBO";
   let to=document.getElementById('to').value||"MBA";
@@ -68,8 +115,8 @@ window.postPrice=()=>{
   let slot=document.getElementById('timeSlot').value;
   let exact=document.getElementById('exactTime').value;
   let airline=sel.value==="other"?document.getElementById('customAirline').value:sel.value;
-  let timeDisplay = exact? `${slot} - ${exact}` : slot;
-  document.getElementById('priceFeed').innerHTML = `<div class="ugc-card"><b>${from} → ${to} | ${airline}</b> <span class="badge">${timeDisplay}</span><br/>KES ${price} - UGC<br/><small>Search hapo juu ku-book na ${airline}</small></div>` + document.getElementById('priceFeed').innerHTML;
+  let timeDisplay=exact?`${slot} - ${exact}`:slot;
+  document.getElementById('priceFeed').innerHTML=`<div class="ugc-card"><b>${from} → ${to} | ${airline}</b> <span style="background:#0B4DBE;color:#fff;padding:2px 8px;border-radius:99px;font-size:12px">${timeDisplay}</span><br/>KES ${price}<br/><small>Search juu ku-book</small></div>`+document.getElementById('priceFeed').innerHTML;
 };
 </script>
 </body>
