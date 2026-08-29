@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" translate="yes">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Bei ya Ndege Kenya | Linganisha Bei za Ndege - BeiyaNdege</title>
+<meta name="description" content="Linganisha bei za ndege Kenya. UGC bei halisi kutoka kwa abiria. NBO-MBA, NBO-KSM. Pata ofa nafuu. Compare flight prices in Kenya."/>
+<meta name="google-site-verification" content="PASTE_YOUR_GOOGLE_CODE_HERE"/>
+<meta property="og:title" content="BeiyaNdege - Bei ya Ndege Kenya"/>
+<meta property="og:description" content="UGC Interactive Flight Prices. Compare & Save."/>
+<meta property="og:image" content="/og-image.png"/>
+<meta property="og:type" content="website"/>
+<link rel="canonical" href="https://beiyandege.mbimagari.autos/"/>
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"FAQPage",
+ "mainEntity":[
+   {"@type":"Question","name":"Bei ya ndege Nairobi to Mombasa ni ngapi?","acceptedAnswer":{"@type":"Answer","text":"Bei inaanza 4500 KES kulingana na UGC wetu. Linganisha hapa beiyandege.mbimagari.autos"}},
+   {"@type":"Question","name":"How to find cheap flights in Kenya?","acceptedAnswer":{"@type":"Answer","text":"Use UGC prices posted by travelers on beiyandege.mbimagari.autos and compare via Aviasales links."}}
+ ]
+}
+</script>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header>
+<div class="logo">BEI<span>YA</span>NDEGE</div>
+<button id="langBtn">SW/EN</button>
+<button id="voiceBtn">🎤 Tafuta kwa sauti / Voice Search</button>
+</header>
+
+<main>
+<h1 id="h1">Linganisha Bei za Ndege Kenya - UGC Halisi</h1>
+
+<div id="ugcForm" class="ugc-card">
+<h3>Chapisha Bei Uliona</h3>
+<input id="from" placeholder="Kutoka: NBO"/>
+<input id="to" placeholder="Kwenda: MBA"/>
+<input id="price" placeholder="Bei: 4500"/>
+<input id="time" placeholder="Muda: Saa 2 usiku / Morning"/>
+<button class="btn-primary" onclick="postPrice()">Chapisha</button>
+</div>
+
+<div id="priceFeed"></div>
+</main>
+
+<footer>
+<p>Follow Us:</p>
+<div class="social-bar">
+<a href="https://tiktok.com/@mbimagari">TikTok</a>
+<a href="https://youtube.com/@mbimagari">YouTube</a>
+<a href="https://www.facebook.com/share/1DQLauFRob/">Facebook</a>
+<a href="https://whatsapp.com/channel/0029Vb5YdIXHLHQb4kUYnj09">WhatsApp Channel</a>
+</div>
+<p>Call/WhatsApp: 0115513320 | Sister: <a href="https://hirendege.mbimagari.autos">HireNdege</a> | <a href="https://rescue.mbimagari.autos">Rescue</a></p>
+<a href="about.html">About</a> | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a> | <a href="contact.html">Contact</a>
+</footer>
+
+<script type="module">
+import {MARKER} from './config.js';
+window.postPrice = ()=>{
+  const from=document.getElementById('from').value, to=document.getElementById('to').value, price=document.getElementById('price').value, time=document.getElementById('time').value;
+  const slug = `${from}-${to}-${price}`.toLowerCase();
+  const aviaLink = `https://www.aviasales.com/search/${from}${to}?marker=${MARKER}`;
+  document.getElementById('priceFeed').innerHTML += `<div class="ugc-card"><b>${from}→${to} KES ${price}</b> <br/>Muda: ${time} <br/><a href="${aviaLink}" target="_blank" class="btn-primary">Angalia Ofa - Check Deal</a></div>`;
+  // Auto creation logic - pushes to localStorage for SEO pages
+  localStorage.setItem(slug, JSON.stringify({from,to,price,time}));
+};
+// Voice Search
+document.getElementById('voiceBtn').onclick=()=>{
+  const rec = new (window.SpeechRecognition||window.webkitSpeechRecognition)();
+  rec.lang='sw-KE'; rec.onresult=(e)=>{alert('Umesema: '+e.results[0][0].transcript);}; rec.start();
+};
+// Lang Switch
+let sw=true;
+document.getElementById('langBtn').onclick=()=>{
+  sw=!sw;
+  document.getElementById('h1').innerText=sw?"Linganisha Bei za Ndege Kenya - UGC Halisi":"Compare Kenya Flight Prices - Real UGC";
+};
+</script>
+</body>
+</html>
