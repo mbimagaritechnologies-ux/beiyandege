@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://beiyandege.mbimagari.autos/sitemap.xml
