@@ -1,63 +1,69 @@
 <!DOCTYPE html>
-<html lang="en" translate="yes">
+<html lang="en">
 <head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Bei ya Ndege Kenya - Linganisha Bei - UGC + Time</title>
-<meta name="description" content="Linganisha bei za ndege Kenya na muda wa departure. UGC halisi. NBO-MBA, NBO-KSM na usiku. Compare flights Kenya with departure times."/>
-<meta name="google-site-verification" content="PASTE_YOUR_GOOGLE_CODE_HERE"/>
-<meta property="og:title" content="BeiyaNdege - Bei + Muda wa Ndege"/>
-<meta property="og:image" content="/og-image.png"/>
-<link rel="canonical" href="https://beiyandege.mbimagari.autos/"/>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"Bei ya ndege Nairobi Mombasa usiku ni ngapi?","acceptedAnswer":{"@type":"Answer","text":"Kwenye beiyandege.mbimagari.autos utaona UGC prices na times za usiku. Anzia 4500 KES."}}
-]}
-</script>
+<title>Bei ya Ndege Kenya - Book Direct + Linganisha</title>
+<meta name="description" content="Book flights directly on beiyandege.mbimagari.autos via Aviasales White Label. Compare UGC prices NBO-MBA, KSM, night flights."/>
 <link rel="stylesheet" href="style.css"/>
+<!-- TRAVELPAYOUTS SCRIPT YAKO - IMEWEKWA SAWA -->
+<script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">
+  (function () {
+      var script = document.createElement("script");
+      script.async = 1;
+      script.setAttribute("data-cmp-ab","2");
+      script.src = 'https://emrldtp.cc/NTY4MTQx.js?t=568141';
+      document.head.appendChild(script);
+  })();
+</script>
 </head>
 <body>
 <header>
 <div class="logo">BEI<span>YA</span>NDEGE</div>
-<div><button id="langBtn" class="btn">SW/EN</button> <button id="voiceBtn" class="btn btn-red">🎤</button></div>
+<div><button id="voiceBtn" class="btn btn-red">🎤 Sema Safari</button></div>
 </header>
-<main style="padding:16px">
-<h1 id="h1">Linganisha Bei za Ndege - na Muda wa Kuondoka</h1>
+<main style="padding:16px;max-width:900px;margin:auto">
 
-<div class="ugc-card">
-<h3>Chapisha Bei Uliona (UGC)</h3>
-<input id="from" placeholder="Kutoka: NBO / Nairobi"/>
-<input id="to" placeholder="Kwenda: MBA / Mombasa"/>
-<input id="price" type="number" placeholder="Bei KES: 4500"/>
+<h1>Linganisha & Book Ndege Moja kwa Moja Hapa</h1>
 
-<label>Muda wa Kuondoka / Departure Time</label>
-<select id="timeSlot">
-<option>Asubuhi 6am-12pm</option>
-<option>Mchana 12pm-6pm</option>
-<option>Jioni 6pm-9pm</option>
-<option>Usiku 9pm-6am - Night Flights</option>
-</select>
-<input id="exactTime" placeholder="Exact Time: 10:45 PM (hiari)"/>
-
-<label>Kampuni ya Ndege</label>
-<select id="airline"></select>
-<div id="customAirlineWrap" style="display:none"><input id="customAirline" placeholder="Andika Kampuni Nyingine: Renegade Air"/></div>
-
-<button class="btn btn-blue" onclick="postPrice()" style="width:100%;margin-top:10px">Chapisha Bei + Muda</button>
+<!-- WHITE LABEL / SEARCH FORM INAONEKANA HAPA AUTOMATICALLY KUTOKA KWA SCRIPT YAKO -->
+<div id="aviasales_search_form" style="background:#f3f4f6;padding:16px;border-radius:16px;margin:15px 0">
+<p>Loading flight search... Ukiona form hapa, script inafanya kazi ✅</p>
 </div>
 
-<div id="priceFeed"><p>Bei za hivi karibuni na nyakati za departure...</p></div>
+<!-- UGC SECTION NA AIRLINE + TIME -->
+<div class="ugc-card">
+<h3>Chapisha Bei Uliona (UGC) + Muda</h3>
+<input id="from" placeholder="Kutoka: NBO"/>
+<input id="to" placeholder="Kwenda: MBA"/>
+<input id="price" type="number" placeholder="Bei KES: 4500"/>
+<select id="timeSlot"><option>Asubuhi 6am-12pm</option><option>Mchana 12pm-6pm</option><option>Jioni 6pm-9pm</option><option>Usiku 9pm-6am</option></select>
+<input id="exactTime" placeholder="Exact: 10:45 PM (hiari)"/>
+<label>Kampuni ya Ndege</label>
+<select id="airline"></select>
+<div id="customAirlineWrap" style="display:none"><input id="customAirline" placeholder="Andika Kampuni Nyingine"/></div>
+<button class="btn btn-blue" onclick="postPrice()" style="width:100%">Chapisha</button>
+</div>
+
+<!-- BOOK DIRECT BUTTON - HII NDIO WHITE LABEL BENEFIT -->
+<div style="border:2px dashed #0B4DBE;border-radius:16px;padding:16px;margin:15px 0;text-align:center">
+<h3>💳 Book Direct Hapa - Pata Commission Bila Kutoka Site</h3>
+<p>White Label ikiwa active, user atabook hapa ndani. Kwa sasa link inaenda Aviasales na marker yako 568141.</p>
+<a id="directBookBtn" href="#" class="btn btn-red" style="font-size:18px">BOOK NOW - NBO → MBA</a>
+<p style="font-size:12px">M-Pesa Help? Piga 0115513320</p>
+</div>
+
+<div id="priceFeed"></div>
 </main>
-<footer style="padding:20px;border-top:2px solid #eee">
-<p>Follow Us: <a href="https://tiktok.com/@mbimagari">TikTok</a> | <a href="https://youtube.com/@mbimagari">YouTube</a> | <a href="https://www.facebook.com/share/1DQLauFRob/">Facebook</a> | <a href="https://whatsapp.com/channel/0029Vb5YdIXHLHQb4kUYnj09">Channel</a></p>
-<p>Call/WhatsApp: 0115513320 | <a href="https://hirendege.mbimagari.autos">HireNdege</a> | <a href="https://rescue.mbimagari.autos">Rescue</a></p>
-<p><a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+
+<footer style="padding:20px;border-top:2px solid #eee;text-align:center">
+<p>© beiyandege.mbimagari.autos | <a href="https://hirendege.mbimagari.autos">HireNdege Hybrid Booking</a></p>
 </footer>
 
 <script type="module">
-import {MARKER,AIRLINES} from './config.js';
+import {AIRLINES} from './config.js';
 const sel=document.getElementById('airline');
 AIRLINES.forEach(a=>{let o=document.createElement('option');o.value=a;o.text=a;sel.appendChild(o);});
-let o=document.createElement('option');o.value="other";o.text="➕ Ongeza Kampuni Nyingine / Add Other";sel.appendChild(o);
+let o=document.createElement('option');o.value="other";o.text="➕ Ongeza Kampuni Nyingine";sel.appendChild(o);
 sel.onchange=()=>{document.getElementById('customAirlineWrap').style.display=sel.value==="other"?"block":"none";};
 
 window.postPrice=()=>{
@@ -68,13 +74,13 @@ window.postPrice=()=>{
   let exact=document.getElementById('exactTime').value;
   let airline=sel.value==="other"?document.getElementById('customAirline').value:sel.value;
   let timeDisplay = exact? `${slot} - ${exact}` : slot;
-  let link=`https://www.aviasales.com/search/${from}${to}?marker=${MARKER}`;
-  document.getElementById('priceFeed').innerHTML = `<div class="ugc-card"><b>${from} → ${to} | ${airline}</b><br/>💰 KES ${price} <span class="badge">${timeDisplay}</span><br/><br/><a href="${link}" target="_blank" class="btn btn-blue">Angalia Ofa - Check Deal</a> <small style="margin-left:8px">Departure time inaonekana</small></div>` + document.getElementById('priceFeed').innerHTML;
+  // Link na marker yako 568141
+  let link=`https://www.aviasales.com/search/${from}${to}?marker=568141`;
+  document.getElementById('priceFeed').innerHTML = `<div class="ugc-card"><b>${from} → ${to} | ${airline}</b> | <span class="badge">${timeDisplay}</span><br/>KES ${price}<br/><a href="${link}" target="_blank" class="btn btn-blue">Book kwa ${airline}</a></div>` + document.getElementById('priceFeed').innerHTML;
+  document.getElementById('directBookBtn').href=link;
+  document.getElementById('directBookBtn').innerText=`BOOK NOW - ${from} → ${to}`;
 };
-// Voice & Lang
-document.getElementById('voiceBtn').onclick=()=>{const r=new (window.SpeechRecognition||window.webkitSpeechRecognition)();r.lang='sw-KE';r.onresult=e=>alert('Umesema: '+e.results[0][0].transcript);r.start();};
-let sw=false;
-document.getElementById('langBtn').onclick=()=>{sw=!sw;document.getElementById('h1').innerText=sw?"Compare Flight Prices - With Departure Time - Even Night Flights":"Linganisha Bei za Ndege - na Muda wa Kuondoka - Hata Usiku";};
+document.getElementById('voiceBtn').onclick=()=>{const r=new (window.SpeechRecognition||window.webkitSpeechRecognition)();r.lang='sw-KE';r.onresult=e=>{let t=e.results[0][0].transcript;document.getElementById('from').value=t;alert('Umesema: '+t)};r.start();};
 </script>
 </body>
- </html>
+  </html>
