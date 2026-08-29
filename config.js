@@ -1,4 +1,4 @@
-export const MARKER = "YOUR_MARKER_HERE";
+export const MARKER = "568141";
 export const SUPPORT_PHONE = "0115513320";
 export const SITE_URL = "https://beiyandege.mbimagari.autos";
 export const SOCIALS = {
@@ -7,4 +7,4 @@ export const SOCIALS = {
   facebook: "https://www.facebook.com/share/1DQLauFRob/",
   whatsapp: "https://whatsapp.com/channel/0029Vb5YdIXHLHQb4kUYnj09"
 };
-export const AIRLINES = ["Jambojet","Kenya Airways","Fly540","Safarilink","Skyward Express","748 Air Services","Reno Air","Freedom Airline"];
+export const AIRLINES = ["Jambojet","Kenya Airways","Fly540","Safarilink","Skyward Express","748 Air Services","Reno Air","Freedom Airline","Mombasa Air Safari"];
