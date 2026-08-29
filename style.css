@@ -1,0 +1,8 @@
+:root{--blue:#0B4DBE;--red:#E10600;--white:#fff}
+body{font-family:Inter,system-ui;background:var(--white);margin:0}
+.logo{font-weight:900;font-size:28px;color:var(--blue);letter-spacing:-1px}
+.logo span{color:var(--red)}
+.btn-primary{background:var(--blue);color:#fff;padding:12px 18px;border-radius:12px;border:none;font-weight:700}
+.btn-red{background:var(--red);color:#fff}
+.ugc-card{border:1px solid #e5e7eb;border-radius:16px;padding:14px;margin:10px 0}
+.social-bar{display:flex;gap:12px;align-items:center}
