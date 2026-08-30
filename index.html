@@ -4,7 +4,6 @@
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Bei ya Ndege Kenya - Compare & Book Direct</title>
 <link rel="stylesheet" href="style.css"/>
-<!-- WHITE LABEL SCRIPT TU - HAKUNA MESSAGE KWA FRONTEND -->
 <script>
   (function () {
         var script = document.createElement("script");
@@ -13,6 +12,40 @@
         script.src = "https://tpwgt.com/wl_web/main.js?wl_id=21459";
         document.head.appendChild(script);
   })();
+</script>
+
+<!-- FIREBASE GLOBAL - CONFIG YAKO IMEWEKWA -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCgy9B_Nkyw26tJuAEVkvccNSKGbOAgso4",
+  authDomain: "beiyandege.firebaseapp.com",
+  databaseURL: "https://beiyandege-default-rtdb.firebaseio.com",
+  projectId: "beiyandege",
+  storageBucket: "beiyandege.firebasestorage.app",
+  messagingSenderId: "930439516370",
+  appId: "1:930439516370:web:31f5be700212442d48dd0b"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+window._pricesRef = ref(db, 'prices');
+
+onValue(window._pricesRef, (snap)=>{
+  const feed = document.getElementById('priceFeed');
+  if(!feed) return;
+  feed.innerHTML="";
+  let list=[];
+  snap.forEach(c=>{ list.push(c.val()); });
+  list.reverse().forEach(d=>{
+    let div=document.createElement('div');
+    div.className="ugc-card";
+    div.innerHTML=`<b>${d.from} → ${d.to} | ${d.airline}</b> <span style="background:#0B4DBE;color:#fff;padding:2px 8px;border-radius:99px;font-size:12px">${d.timeDisplay}</span><br/>KES ${d.price} <small style="color:#888">- anonymous</small><br/><small>Search juu ku-book</small>`;
+    feed.appendChild(div);
+  });
+});
 </script>
 </head>
 <body>
@@ -29,24 +62,17 @@
     </select>
   </nav>
 </header>
-
 <main style="padding:16px;max-width:1000px;margin:auto">
 <h1 id="heroTitle">Linganisha Bei ya Ndege Kenya</h1>
-
-<!-- VOICE SEARCH - IMEWEKWA SAWA -->
 <div class="ugc-card" style="display:flex;gap:8px">
   <input id="voiceInput" placeholder="Sema: NBO to Mombasa leo usiku / Say: Nairobi to Kisumu"/>
   <button id="voiceBtn" class="btn btn-red">🎤 Voice Search</button>
 </div>
-
-<!-- WHITE LABEL SEARCH & TICKETS - CLEAN, NO DEBUG TEXT -->
 <div style="background:#fff;padding:16px;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.08);margin:15px 0">
   <div id="tpwl-search"></div>
   <div id="tpwl-tickets" style="margin-top:15px"></div>
   <button id="bookNowBtn" class="btn btn-red" style="width:100%;margin-top:12px;font-size:18px">BOOK NOW</button>
 </div>
-
-<!-- UGC NA AIRLINE + TIME -->
 <div class="ugc-card">
 <h3 id="ugcTitle">Chapisha Bei Uliona + Muda & Kampuni</h3>
 <input id="from" placeholder="Kutoka: NBO"/><input id="to" placeholder="Kwenda: MBA"/>
@@ -55,12 +81,10 @@
 <input id="exactTime" placeholder="Exact: 10:45 PM (hiari)"/>
 <label>Kampuni</label><select id="airline"></select>
 <div id="customAirlineWrap" style="display:none"><input id="customAirline" placeholder="Andika Kampuni Nyingine"/></div>
-<button class="btn btn-blue" onclick="postPrice()" style="width:100%">Chapisha</button>
+<button class="btn btn-blue" id="postBtn" style="width:100%">Chapisha</button>
 </div>
-
 <div id="priceFeed"></div>
 </main>
-
 <footer style="padding:20px;text-align:center;border-top:2px solid #eee">
   <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:10px">
     <a href="https://tiktok.com/@mbimagari">TikTok</a>
@@ -72,26 +96,17 @@
   <p>© beiyandege.mbimagari.autos | Support: 0115513320</p>
   <p style="font-size:11px;color:#888;margin-top:6px">Affiliate disclosure: We earn commission if you book via our links. UGC prices are from travelers.</p>
 </footer>
-
 <script type="module">
 import {SOCIALS, AIRLINES} from './config.js';
-// Airline list
 const sel=document.getElementById('airline');
 AIRLINES.forEach(a=>{let o=document.createElement('option');o.value=a;o.textContent=a;sel.appendChild(o);});
 let o=document.createElement('option');o.value="other";o.textContent="➕ Ongeza Nyingine";sel.appendChild(o);
 sel.onchange=()=>{document.getElementById('customAirlineWrap').style.display=sel.value==="other"?"block":"none";};
-
-// BOOK NOW FIX - Ina-scroll kwa tickets na ina-trigger search
 document.getElementById('bookNowBtn').onclick=()=>{
   document.getElementById('tpwl-search').scrollIntoView({behavior:'smooth'});
-  let from=document.getElementById('from').value||"NBO";
-  let to=document.getElementById('to').value||"MBA";
-  // Hii inasaidia white label kujua route
   window.scrollTo(0,0);
   document.querySelector('#tpwl-search input')?.focus();
 };
-
-// Voice search fix
 const voiceBtn=document.getElementById('voiceBtn');
 const voiceInput=document.getElementById('voiceInput');
 voiceBtn.onclick=()=>{
@@ -101,14 +116,11 @@ voiceBtn.onclick=()=>{
   r.onresult=e=>{ voiceInput.value=e.results[0][0].transcript; document.getElementById('from').value=e.results[0][0].transcript; };
   r.start();
 };
-
-// Language switch
 document.getElementById('langSwitch').onchange=(e)=>{
   if(e.target.value==="sw"){document.getElementById('heroTitle').textContent="Linganisha Bei ya Ndege Kenya";document.getElementById('ugcTitle').textContent="Chapisha Bei Uliona + Muda";}
   else{document.getElementById('heroTitle').textContent="Compare Kenya Flight Prices";document.getElementById('ugcTitle').textContent="Post Price You Saw + Time & Airline";}
 };
-
-window.postPrice=()=>{
+document.getElementById('postBtn').onclick=()=>{
   let from=document.getElementById('from').value||"NBO";
   let to=document.getElementById('to').value||"MBA";
   let price=document.getElementById('price').value||"4500";
@@ -116,7 +128,10 @@ window.postPrice=()=>{
   let exact=document.getElementById('exactTime').value;
   let airline=sel.value==="other"?document.getElementById('customAirline').value:sel.value;
   let timeDisplay=exact?`${slot} - ${exact}`:slot;
-  document.getElementById('priceFeed').innerHTML=`<div class="ugc-card"><b>${from} → ${to} | ${airline}</b> <span style="background:#0B4DBE;color:#fff;padding:2px 8px;border-radius:99px;font-size:12px">${timeDisplay}</span><br/>KES ${price}<br/><small>Search juu ku-book</small></div>`+document.getElementById('priceFeed').innerHTML;
+  if(window._pricesRef){
+    push(window._pricesRef, {from,to,price,timeDisplay,airline,at:Date.now()});
+  }
+  document.getElementById('price').value="";
 };
 </script>
 </body>
