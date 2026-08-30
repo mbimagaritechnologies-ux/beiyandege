@@ -13,12 +13,9 @@
         document.head.appendChild(script);
   })();
 </script>
-
-<!-- FIREBASE GLOBAL - CONFIG YAKO IMEWEKWA -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-database.js";
-
 const firebaseConfig = {
   apiKey: "AIzaSyCgy9B_Nkyw26tJuAEVkvccNSKGbOAgso4",
   authDomain: "beiyandege.firebaseapp.com",
@@ -28,11 +25,9 @@ const firebaseConfig = {
   messagingSenderId: "930439516370",
   appId: "1:930439516370:web:31f5be700212442d48dd0b"
 };
-
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 window._pricesRef = ref(db, 'prices');
-
 onValue(window._pricesRef, (snap)=>{
   const feed = document.getElementById('priceFeed');
   if(!feed) return;
@@ -42,83 +37,64 @@ onValue(window._pricesRef, (snap)=>{
   list.reverse().forEach(d=>{
     let div=document.createElement('div');
     div.className="ugc-card";
-    div.innerHTML=`<b>${d.from} → ${d.to} | ${d.airline}</b> <span style="background:#0B4DBE;color:#fff;padding:2px 8px;border-radius:99px;font-size:12px">${d.timeDisplay}</span><br/>KES ${d.price} <small style="color:#888">- anonymous</small><br/><small>Search juu ku-book</small>`;
+    div.innerHTML=`<b>${d.from} → ${d.to} | ${d.airline}</b> <span style="background:#0B4DBE;color:#fff;padding:2px 8px;border-radius:99px;font-size:12px">${d.timeDisplay}</span><br/>KES ${d.price} <small style="color:#888">- anonymous</small>`;
     feed.appendChild(div);
   });
 });
 </script>
 </head>
 <body>
-<header>
-  <div class="logo">BEI<span>YA</span>NDEGE</div>
-  <nav id="mainNav">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="privacy.html">Privacy</a>
-    <select id="langSwitch" style="margin-left:10px">
-      <option value="en">EN</option>
-      <option value="sw">SW</option>
-    </select>
-  </nav>
-</header>
+<header><div class="logo">BEI<span>YA</span>NDEGE</div>
+<nav id="mainNav"><a href="index.html">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><select id="langSwitch"><option value="en">EN</option><option value="sw">SW</option></select></nav></header>
 <main style="padding:16px;max-width:1000px;margin:auto">
 <h1 id="heroTitle">Linganisha Bei ya Ndege Kenya</h1>
-<div class="ugc-card" style="display:flex;gap:8px">
-  <input id="voiceInput" placeholder="Sema: NBO to Mombasa leo usiku / Say: Nairobi to Kisumu"/>
-  <button id="voiceBtn" class="btn btn-red">🎤 Voice Search</button>
-</div>
+<div class="ugc-card" style="display:flex;gap:8px"><input id="voiceInput" placeholder="Sema: NBO to Mombasa"/><button id="voiceBtn" class="btn btn-red">🎤 Voice Search</button></div>
 <div style="background:#fff;padding:16px;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.08);margin:15px 0">
   <div id="tpwl-search"></div>
   <div id="tpwl-tickets" style="margin-top:15px"></div>
-  <button id="bookNowBtn" class="btn btn-red" style="width:100%;margin-top:12px;font-size:18px">BOOK NOW</button>
+  <button id="bookNowBtn" class="btn btn-red" style="width:100%;margin-top:12px;font-size:18px">BOOK NOW - TAFTA NDEGE</button>
 </div>
 <div class="ugc-card">
 <h3 id="ugcTitle">Chapisha Bei Uliona + Muda & Kampuni</h3>
-<input id="from" placeholder="Kutoka: NBO"/><input id="to" placeholder="Kwenda: MBA"/>
-<input id="price" type="number" placeholder="Bei KES"/>
-<select id="timeSlot"><option>Asubuhi 6am-12pm</option><option>Mchana 12pm-6pm</option><option>Jioni 6pm-9pm</option><option>Usiku 9pm-6am</option></select>
-<input id="exactTime" placeholder="Exact: 10:45 PM (hiari)"/>
-<label>Kampuni</label><select id="airline"></select>
-<div id="customAirlineWrap" style="display:none"><input id="customAirline" placeholder="Andika Kampuni Nyingine"/></div>
+<input id="from" placeholder="Kutoka: NBO"/><input id="to" placeholder="Kwenda: MBA"/><input id="price" type="number" placeholder="Bei KES"/>
+<select id="timeSlot"><option>Asubuhi 6am-12pm</option><option>Mchana 12pm-6pm</option><option>Jioni 6pm-9pm</option><option>Usiku 9pm-6am</option></select><input id="exactTime" placeholder="Exact: 10:45 PM"/>
+<label>Kampuni</label><select id="airline"></select><div id="customAirlineWrap" style="display:none"><input id="customAirline" placeholder="Andika Kampuni Nyingine"/></div>
 <button class="btn btn-blue" id="postBtn" style="width:100%">Chapisha</button>
 </div>
 <div id="priceFeed"></div>
 </main>
 <footer style="padding:20px;text-align:center;border-top:2px solid #eee">
   <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:10px">
-    <a href="https://tiktok.com/@mbimagari">TikTok</a>
-    <a href="https://youtube.com/@mbimagari">YouTube</a>
-    <a href="https://www.facebook.com/share/1DQLauFRob/">Facebook</a>
-    <a href="https://whatsapp.com/channel/0029Vb5YdIXHLHQb4kUYnj09">WhatsApp Channel</a>
-    <a href="https://hirendege.mbimagari.autos">HireNdege</a>
+    <a href="https://tiktok.com/@mbimagari">TikTok</a><a href="https://youtube.com/@mbimagari">YouTube</a><a href="https://www.facebook.com/share/1DQLauFRob/">Facebook</a><a href="https://whatsapp.com/channel/0029Vb5YdIXHLHQb4kUYnj09">WhatsApp Channel</a><a href="https://hirendege.mbimagari.autos">HireNdege</a>
   </div>
   <p>© beiyandege.mbimagari.autos | Support: 0115513320</p>
-  <p style="font-size:11px;color:#888;margin-top:6px">Affiliate disclosure: We earn commission if you book via our links. UGC prices are from travelers.</p>
 </footer>
 <script type="module">
-import {SOCIALS, AIRLINES} from './config.js';
+import {AIRLINES} from './config.js';
 const sel=document.getElementById('airline');
 AIRLINES.forEach(a=>{let o=document.createElement('option');o.value=a;o.textContent=a;sel.appendChild(o);});
 let o=document.createElement('option');o.value="other";o.textContent="➕ Ongeza Nyingine";sel.appendChild(o);
 sel.onchange=()=>{document.getElementById('customAirlineWrap').style.display=sel.value==="other"?"block":"none";};
+
+// HII NDIO FIX YA BOOK NOW - IMEWEKWA HAPA EXACTLY
 document.getElementById('bookNowBtn').onclick=()=>{
   document.getElementById('tpwl-search').scrollIntoView({behavior:'smooth'});
-  window.scrollTo(0,0);
-  document.querySelector('#tpwl-search input')?.focus();
+  const fromVal = document.getElementById('from').value || "NBO";
+  const toVal = document.getElementById('to').value || "MBA";
+  setTimeout(()=>{
+    const inputs = document.querySelectorAll('#tpwl-search input');
+    if(inputs[0]) inputs[0].value = fromVal;
+    if(inputs[1]) inputs[1].value = toVal;
+    window.scrollTo({top:0, behavior:'smooth'});
+  }, 300);
 };
-const voiceBtn=document.getElementById('voiceBtn');
-const voiceInput=document.getElementById('voiceInput');
-voiceBtn.onclick=()=>{
+
+document.getElementById('voiceBtn').onclick=()=>{
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
   if(!SR){alert("Browser haisupport voice");return;}
   const r=new SR(); r.lang=document.getElementById('langSwitch').value==="sw"?"sw-KE":"en-KE";
-  r.onresult=e=>{ voiceInput.value=e.results[0][0].transcript; document.getElementById('from').value=e.results[0][0].transcript; };
+  r.onresult=e=>{ document.getElementById('voiceInput').value=e.results[0][0].transcript; };
   r.start();
-};
-document.getElementById('langSwitch').onchange=(e)=>{
-  if(e.target.value==="sw"){document.getElementById('heroTitle').textContent="Linganisha Bei ya Ndege Kenya";document.getElementById('ugcTitle').textContent="Chapisha Bei Uliona + Muda";}
-  else{document.getElementById('heroTitle').textContent="Compare Kenya Flight Prices";document.getElementById('ugcTitle').textContent="Post Price You Saw + Time & Airline";}
 };
 document.getElementById('postBtn').onclick=()=>{
   let from=document.getElementById('from').value||"NBO";
@@ -128,9 +104,7 @@ document.getElementById('postBtn').onclick=()=>{
   let exact=document.getElementById('exactTime').value;
   let airline=sel.value==="other"?document.getElementById('customAirline').value:sel.value;
   let timeDisplay=exact?`${slot} - ${exact}`:slot;
-  if(window._pricesRef){
-    push(window._pricesRef, {from,to,price,timeDisplay,airline,at:Date.now()});
-  }
+  if(window._pricesRef){ const {push}=Object.getPrototypeOf(window._pricesRef).constructor; import("https://www.gstatic.com/firebasejs/12.18.0/firebase-database.js").then(m=>{m.push(window._pricesRef,{from,to,price,timeDisplay,airline,at:Date.now()});}); }
   document.getElementById('price').value="";
 };
 </script>
